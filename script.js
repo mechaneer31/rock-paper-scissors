@@ -11,8 +11,16 @@
 
     function getHumanChoice() {
         let humanResult = prompt("Which item do you choose?");
+        let humanResultLowerCase = humanResult.toLowerCase();
+        let humanResultSubString = humanResultLowerCase.substring(1);
+            console.log(humanResultSubString)
+        let humanResultFirstLetter = humanResultLowerCase.slice(0,1);
+        let humanResultFirstLetterCap = humanResultFirstLetter.toUpperCase();
+            console.log(humanResultFirstLetterCap);
+        let finalHumanResult = humanResultFirstLetterCap + humanResultSubString;
+        console.log("finalHumanResult is: " + finalHumanResult)
         /*console.log("getHumanchoice Function humanResult var is: " + humanResult);*/
-        return humanResult
+        return finalHumanResult
     }
 
     function getComputerChoice() {
