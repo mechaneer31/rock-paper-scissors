@@ -13,10 +13,10 @@
         let humanResult = prompt("Which item do you choose?");
         let humanResultLowerCase = humanResult.toLowerCase();
         let humanResultSubString = humanResultLowerCase.substring(1);
-            console.log(humanResultSubString)
+            // console.log(humanResultSubString)
         let humanResultFirstLetter = humanResultLowerCase.slice(0,1);
         let humanResultFirstLetterCap = humanResultFirstLetter.toUpperCase();
-            console.log(humanResultFirstLetterCap);
+            // console.log(humanResultFirstLetterCap);
         let finalHumanResult = humanResultFirstLetterCap + humanResultSubString;
         console.log("finalHumanResult is: " + finalHumanResult)
         /*console.log("getHumanchoice Function humanResult var is: " + humanResult);*/
@@ -127,19 +127,19 @@
             } else {
                 winnerOfGame = "Tie"
             }
-            console.log("winnerOfGame is: " + winnerOfGame);
+            // console.log("winnerOfGame is: " + winnerOfGame);
             return winnerOfGame
             
     }
 
 
             gameWinner = playGame(5);
-            console.log("gameWinner is: " + gameWinner)
+            // console.log("gameWinner is: " + gameWinner)
             if (gameWinner == "Human" | gameWinner == "Computer") {
                 if (gameWinner == "Human") {
-                    console.log("You won the game!");
+                    console.log("Congratulations, You won the game!");
                 } else {
-                    console.log("Computer won the game!  You are a complete loser and should jump off a bridge.")
+                    console.log("Computer won the game! Try again.")
                 }      
             } else {
                 console.log("The game ended in a tie!")
