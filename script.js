@@ -5,11 +5,13 @@
     let humanChoice =  "";
     let computerChoice = "";
     let roundNumber = 0;
+    let finalHumanScore = 0;
+    let finalComputerScore = 0;
 
 
     function getHumanChoice() {
         let humanResult = prompt("Which item do you choose?");
-        console.log("getHumanchoice Function humanResult var is: " + humanResult);
+        /*console.log("getHumanchoice Function humanResult var is: " + humanResult);*/
         return humanResult
     }
 
@@ -18,7 +20,7 @@
         let compResult = "";
         
         compRandomNum = Math.floor(Math.random() * 3) + 1;
-                console.log("Comp Number: " + compRandomNum);
+                /*console.log("Comp Number: " + compRandomNum);*/
 
             if (compRandomNum == 1) {
                 compResult = "Rock";
@@ -28,84 +30,114 @@
                 compResult = "Scissors";
             }
 
-            console.log("getComputerChoice Function compResult var is:" + compResult)
+            //console.log("getComputerChoice Function compResult var is:" + compResult)
 
             return compResult;
     }
     
-    function determineWinner(humanItem, computerItem) {
-        console.log("Begin determineWinner func.....  \nhumanItem var is: " + humanItem +
-            "\ncomputerItem var is: " + computerItem)
-                /*humanItem var and computerItem var should match humanChoice and computerChoice */
-        let winnerIs = ""
+    function playRound(humanItem, computerItem) {
+        // console.log("Begin determineWinner func.....  \nhumanItem var is: " + humanItem +
+            // "\ncomputerItem var is: " + computerItem)
+                // humanItem var and computerItem var should match humanChoice and computerChoice
+
+        
+                let winnerIs = ""
         if (computerItem == "Rock") {
                 if (humanItem == "Paper") {
                     winnerIs = "Human";
+                    console.log("You win! " + humanItem + " beats " + computerItem);
                 } else if (humanItem == "Scissors") {
                     winnerIs = "Computer";
+                    console.log("You lose! " + computerItem + " beats " + humanItem);
                 } else {
                     winnerIs ="Tie";
+                    console.log("This round was a tie! No points for either player.")
                 }
 
             } else if (computerItem == "Paper") {
                 if (humanItem == "Scissors") {
                     winnerIs = "Human";
+                    console.log("You win! " + humanItem + " beats " + computerItem);
                 } else if (humanItem == "Rock") {
                     winnerIs = "Computer";
+                    console.log("You lose! " + computerItem + " beats " + humanItem);
                 } else {
                     winnerIs = "Tie";
+                    console.log("This round was a tie! No points for either player.")
                 }
             } else if (computerItem == "Scissors") {
                 if (humanItem == "Rock") {
                     winnerIs = "Human";
+                    console.log("You win! " + humanItem + " beats " + computerItem);
                 } else if (humanItem == "Paper"){
                     winnerIs = "Computer";
+                    console.log("You lose! " + computerItem + " beats " + humanItem);
                 } else {
                     winnerIs = "Tie";
+                    console.log("This round was a tie! No points for either player.")
                 }
             }
 
-            console.log("determineWinner loop winnerIs var is: " + winnerIs);
+
+            
+
+
+            // console.log("determineWinner loop winnerIs var is: " + winnerIs);
             return winnerIs
+
+
     }
 
-    numOfRounds = prompt("How many rounds would you like to play?")
-    console.log("Number of rounds chosen: " + numOfRounds);
+    function playGame(numberRounds) {
+        
+            // numOfRounds = prompt("How many rounds would you like to play?")
+            // console.log("Number of rounds chosen: " + numOfRounds);
+            console.log("number of rounds: " + numberRounds)
+            humanScore = 0;
+            compScore = 0;
 
-    for (let i = 1; i <= numOfRounds; i++) {
-        console.log("***********Round " + i +"**************");
-
-    
-    humanChoice = getHumanChoice();
-    console.log("Main Loop humanChoice var is: " + humanChoice);
-        /* humanResult in getHumanChoice function should equal humanChoice variable*/
-
-
-    computerChoice = getComputerChoice();
-    console.log("Main Loop computerChoice var is: " + computerChoice);
-        /* computerChoice in getComputerChoice function should equal computerChoice variable*/
-
-    winner = determineWinner(humanChoice, computerChoice);
-    console.log("Main Loop winner var is:" + winner);
-
-    
-
-    
-
-    console.log("Scores before round were: \n" + "Computer Score: " + compScore + "\n" + "Human Score: " 
-        + humanScore);
-    
-    if (winner == "Human" | winner == "Computer"){
-        if (winner == "Human") {
-            humanScore = humanScore + 1;
-        } else {
-            compScore = compScore +1;
-        }
+            for (let i = 1; i <= numberRounds; i++) {
+                console.log("***********Round " + i +"**************");
+                
+            humanChoice = getHumanChoice()
+            computerChoice = getComputerChoice()
+            roundWinner = playRound(humanChoice, computerChoice);            
+            
+            if (roundWinner == "Human" | roundWinner == "Computer"){
+                                if (roundWinner == "Human") {
+                                    humanScore = humanScore + 1;
+                                } else {
+                                    compScore = compScore +1;
+                                }
+                            }
+                            console.log("humanScore: " + humanScore + "\ncomputerScore is: " + compScore);
+            }
+            if(humanScore > compScore) {
+                winnerOfGame = "Human"
+            } else if (compScore > humanScore) {
+                winnerOfGame = "Computer"
+            } else {
+                winnerOfGame = "Tie"
+            }
+            console.log("winnerOfGame is: " + winnerOfGame);
+            return winnerOfGame
+            
     }
-    console.log("Scores after this round are: \n" + "Computer Score: " + compScore + "\n" + "Human Score: " 
-        + humanScore);
 
-}
+
+            gameWinner = playGame(5);
+            console.log("gameWinner is: " + gameWinner)
+            if (gameWinner == "Human" | gameWinner == "Computer") {
+                if (gameWinner == "Human") {
+                    console.log("You won the game!");
+                } else {
+                    console.log("Computer won the game!  You are a complete loser and should jump off a bridge.")
+                }      
+            } else {
+                console.log("The game ended in a tie!")
+            }
+    
+
 
 
 
