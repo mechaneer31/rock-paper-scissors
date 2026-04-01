@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    align-content: center;
+}
+
+.instruction{
+    display: flex;
+}
+
+
+.choice-box{
+    display: flex;
+}
+
+.btn-choice{
+    display: inline;
+    margin: 20px;
+    height: 100px;
+    width: 100px;
+}
