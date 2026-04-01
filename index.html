@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,25 +16,31 @@
     </div>
     <div class="welcome">
         <p>Hello, professor.  How about playing a nice game of rock paper scissors?</p>
+        <button>Start Game!</button>
     </div>
 
     <div class="instruction">
+        <p
+            id="compStatusMessage"
+        >
+        </p>
         <p>
             Choose your weapon of choice to match your power against the computer:
         </p>
     </div>
 
     <div class="choice-box">
-        <button class="btn-choice">
-            
+        <button
+        class="btn-choice" id="btn-rock">
+            Rock
         </button>
 
-        <button class="btn-choice">
-
+        <button class="btn-choice" id="btn-paper">
+            Paper
         </button>
 
-        <button class="btn-choice">
-
+        <button class="btn-choice" id="btn-scissors">
+            Scissors
         </button>
     </div>
     
