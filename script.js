@@ -10,6 +10,7 @@
 
 
     function getHumanChoice() {
+        /*
         let humanResult = prompt("Which item do you choose?");
         let humanResultLowerCase = humanResult.toLowerCase();
         let humanResultSubString = humanResultLowerCase.substring(1);
@@ -19,7 +20,32 @@
             // console.log(humanResultFirstLetterCap);
         let finalHumanResult = humanResultFirstLetterCap + humanResultSubString;
         console.log("finalHumanResult is: " + finalHumanResult)
-        /*console.log("getHumanchoice Function humanResult var is: " + humanResult);*/
+        //console.log("getHumanchoice Function humanResult var is: " + humanResult);
+        */
+
+        let finalHumanResult = ""
+
+        const choiceBtns = document.querySelectorAll(".btn-choice");
+        choiceBtns.forEach((button) => {
+            button.addEventListener('click', (button) => {
+                switch (button.id) {
+                 case "btn-rock":
+                    finalHumanResult = "rock";
+                    break;
+                case "btn-paper":
+                    finalHumanResult = "paper";
+                    break;
+                case "btn-scissors":
+                    finalHumanResult = "scissors";
+                    break;
+                default:
+                    finalHumanResult = "error getting item"
+                }
+            });
+        });
+
+        console.log(finalHumanResult)
+
         return finalHumanResult
     }
 
@@ -96,6 +122,7 @@
 
     }
 
+    /*
     function playGame(numberRounds) {
         
             // numOfRounds = prompt("How many rounds would you like to play?")
@@ -130,9 +157,61 @@
             // console.log("winnerOfGame is: " + winnerOfGame);
             return winnerOfGame
             
-    }
+    }*/
 
 
+            
+    humanScore = 0;
+            compScore = 0;
+    
+    
+    const choiceBtns = document.querySelectorAll(".btn-choice");
+        choiceBtns.forEach((button) => {
+            button.addEventListener('click', () => {
+                switch (button.id) {
+                 case "btn-rock":
+                    humanChoice = "Rock";
+                    console.log("rock button clicked")
+                    break;
+                case "btn-paper":
+                    humanChoice = "Paper";
+                    console.log("paper button clicked")
+                    break;
+                case "btn-scissors":
+                    humanChoice = "Scissors";
+                    console.log("scissors button clicked")
+                    break;
+                default:
+                    //finalHumanResult = "error getting item"
+                    console.log("error with btn click")
+                }
+
+
+                computerChoice = getComputerChoice();
+            roundWinner = playRound(humanChoice, computerChoice);
+            console.log("roundWinner: ", roundWinner);
+
+if (roundWinner == "Human" | roundWinner == "Computer"){
+                                if (roundWinner == "Human") {
+                                    humanScore = humanScore + 1;
+                                } else {
+                                    compScore = compScore +1;
+                                }
+                            }
+                            console.log("humanScore: " + humanScore + "\ncomputerScore is: " + compScore);
+
+            });
+            
+
+
+
+            
+        });
+
+       
+    
+    
+            /*
             gameWinner = playGame(5);
             // console.log("gameWinner is: " + gameWinner)
             if (gameWinner == "Human" | gameWinner == "Computer") {
@@ -143,11 +222,11 @@
                 }      
             } else {
                 console.log("The game ended in a tie!")
-            }
+            }*/
     
+        
+        
 
-
-
-
+        
 
 
